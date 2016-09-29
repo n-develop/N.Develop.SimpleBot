@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using Microsoft.Bot.Connector;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
-using Microsoft.Bot.Connector;
-using Newtonsoft.Json;
 
 namespace N.Develop.SimpleBot
 {
