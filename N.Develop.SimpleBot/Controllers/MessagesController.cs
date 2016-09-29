@@ -27,7 +27,7 @@ namespace N.Develop.SimpleBot
                 }
                 else if ("how are you?".Equals(activity.Text?.ToLower()))
                 {
-                    reply = activity.CreateReply($"I'm fine. Thanks for asking.");
+                    reply = activity.CreateReply("I'm fine. Thanks for asking.");
                 }
                 else
                 {
