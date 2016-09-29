@@ -19,11 +19,22 @@ namespace N.Develop.SimpleBot
             if (activity.Type == ActivityTypes.Message)
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                // calculate something for us to return
-                int length = (activity.Text ?? string.Empty).Length;
+                Activity reply;
+
+                if ("hi".Equals(activity.Text?.ToLower()))
+                {
+                    reply = activity.CreateReply($"Hi, {activity.From.Name}!");
+                }
+                else if ("how are you?".Equals(activity.Text?.ToLower()))
+                {
+                    reply = activity.CreateReply($"I'm fine. Thanks for asking.");
+                }
+                else
+                {
+                    reply = activity.CreateReply("Sorry, I didn't quiet get that.");
+                }
 
                 // return our reply to the user
-                Activity reply = activity.CreateReply($"You sent {activity.Text} which was {length} characters");
                 await connector.Conversations.ReplyToActivityAsync(reply);
             }
             else
